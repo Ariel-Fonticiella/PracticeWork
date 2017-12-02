@@ -35,4 +35,5 @@ var myVar = "A";
 console.log(myVar);
 r();
 
+
 //    ****************** GLOBAL "A" EXECUTION CONTEXT END ******************
