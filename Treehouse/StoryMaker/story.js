@@ -1,4 +1,7 @@
-var character = prompt("Please provide a 'Character' for your story:");
+var questions = 6;
+var questionsLeft = ' [' + questions + ' questions left]';
+
+var character = prompt("Please provide a 'Character' for your story:" + questionsLeft);
 
 var setting = prompt("Please provide a 'Setting' where your story takes place:");
 
