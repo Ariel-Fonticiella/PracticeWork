@@ -1,7 +1,19 @@
-var answer = prompt("Where am I from?");
+// var answer = prompt("Where am I from?");
+//
+// if ( answer.toUpperCase() === "MIAMI" ) {
+//   document.write("<p> That's right!</p>");
+// } else {
+//   document.write("<p> Nope! Try again!</p>");
+// }
 
-if ( answer.toUpperCase() === "MIAMI" ) {
-  document.write("<p> That's right!</p>");
+
+var randomNumber =  Math.floor( Math.random() * 10) + 1;
+var guess = prompt("I'm thing of a number between 1 and 10. What is it?");
+
+
+
+if ( parseInt(guess) === randomNumber ) {
+  alert("You are Correct!");
 } else {
-  document.write("<p> Nope! Try again!</p>");
+  alert("You are WRONGGGGGGGG!!!!!! The correct number was acually " + randomNumber + ".");
 }
