@@ -6,7 +6,7 @@ var rgbColor;
 var randomNum = Math.floor(Math.random() * 256 );
 
 
-for ( var i = 0; i < 10; i += 1) {
+for ( var i = 1; i < 225; i += 1) {
   red = Math.floor(Math.random() * 256 );
   green = Math.floor(Math.random() * 256 );
   blue = Math.floor(Math.random() * 256 );
