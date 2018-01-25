@@ -38,15 +38,7 @@ for (var i = 0; i < theQuiz.length; i += 1 ) {
 
           // Alert the user that they are incorrect, give them the correctAnswer, and tell them how many quesitons they have gotten incorrect so far.
           alert("Sorry! The correct answer was actually '" + correctAnswer + "'. So far you have got " + wrongAnswerCount + " question(s) incorrect.");
-      }
+
+      } // else
 
   } // Loop-End
-
-
-
-
-
-
-    function print(message) {
-      document.write(message);
-    }
