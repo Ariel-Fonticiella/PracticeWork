@@ -8,6 +8,8 @@ var theQuiz = [
     ["What avenue did Ariel grow up on?", "132"]
 ];
 
+var html;
+
 // Created a variable to keep count of the answers the user answers correctly
 var correctAnswerCount = 0;
 
@@ -45,10 +47,13 @@ for (var i = 0; i < theQuiz.length; i += 1 ) {
 } // Loop-End
 
 function print(message) {
-  document.write(message);
+  var outputDiv = document.getElementById('output');
+  // .innerHTML is a PROPERTY you can change just like you can change the value in any variable by simply setting the property.
+  outputDiv.innerHTML = message;
 }
-print("<h1> There was a total of <strong>" + theQuiz.length + " question(s)</strong> on this test. </h1>");
 
-print("<h2> Of those "+ theQuiz.length +" quesitons, you answered a total of <strong>" + correctAnswerCount + " question(s) correctly</strong>. </h2>");
+html = [
+    "<h1> There was a total of <strong>" + theQuiz.length + " question(s)</strong> on this test. </h1> <br /> <h1> Of those "+ theQuiz.length +" quesitons, you answered a total of <strong>" + correctAnswerCount + " question(s) correctly</strong>. </h1> <br /> <h2> And you answered <strong>" + wrongAnswerCount + " question(s) incorrectly</strong>. </h2>"
+  ];
 
-print("<h2> But you answered <strong>" + wrongAnswerCount + " question(s) incorrectly</strong>. </h2>");
+  print(html);
