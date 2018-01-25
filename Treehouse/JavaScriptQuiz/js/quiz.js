@@ -2,6 +2,7 @@
 var theQuiz = [
     ["What is Ariel's favorite NFL team?", "Miami Dolphins"],
     ["Professionally, what was Ariel before learning to code?", "Attorney"],
+    ["How old is Ariel?", "31"],
     ["Ariel loves to play video games, true or false?", "true"],
     ["What is Ariel's favorite video game growing up?", "BioShock"],
     ["What avenue did Ariel grow up on?", "132"]
@@ -17,7 +18,7 @@ var wrongAnswerCount = 0;
 for (var i = 0; i < theQuiz.length; i += 1 ) {
 
       // When the loop is run, create a variable that stores the user's response
-      var userAnswer = prompt(theQuiz[i][0]);
+      var userAnswer = prompt(theQuiz[i][0]).toLowerCase();
 
       // Then create a variable that stores the correct answer from the array and sets all responses to be in lowercase. I did this becuase we do not know how the user will type the answer into the prompt, this ensures that if the answer is correct, it will be marked as correct regardless of what case the answer was written in.
       var correctAnswer = theQuiz[i][1].toLowerCase();
@@ -48,6 +49,6 @@ function print(message) {
 }
 print("<h1> There was a total of <strong>" + theQuiz.length + " question(s)</strong> on this test. </h1>");
 
-print("<h2> Of those 5 quesitons, you answered a total of <strong>" + correctAnswerCount + " question(s)</strong> correctly. </h2>");
+print("<h2> Of those "+ theQuiz.length +" quesitons, you answered a total of <strong>" + correctAnswerCount + " question(s) correctly</strong>. </h2>");
 
-print("<h2> But you also answered <strong>" + wrongAnswerCount + " question(s)</strong> incorrectly. </h2>");
+print("<h2> But you answered <strong>" + wrongAnswerCount + " question(s) incorrectly</strong>. </h2>");
