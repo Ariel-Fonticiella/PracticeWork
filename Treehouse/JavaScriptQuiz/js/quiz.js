@@ -41,4 +41,11 @@ for (var i = 0; i < theQuiz.length; i += 1 ) {
 
       } // else
 
-  } // Loop-End
+} // Loop-End
+
+function print(message) {
+  document.write(message);
+}
+
+print("<h3> You got a total of " + correctAnswerCount + " question(s) correct out of " + theQuiz.length + " !</h3>");
+print("<h3> But you also got " + wrongAnswerCount + " question(s) incorrect. </h3>");
