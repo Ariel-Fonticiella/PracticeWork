@@ -42,3 +42,16 @@ console.log(c); // output: Object { greeting: "howdy" }
 console.log(d); // output: Object { greeting: "Hola" }
 
 // "by reference" doesn't really apply here b/c the = operator saw that this wasn't a preexisting location in memory. This is a brand new object being created on the fly. So, since it saw that its second parameter wasn't an object that already existed in memory, it had to set up a spot in memory for this to live. So (c) is now pointing at a different spot in memory than (d).
+
+
+
+
+// This is an IIFE (Immediatly Invoked Function Expression)
+var username = prompt("What is your username?");
+
+var newName = username;
+
+(function(name) {
+  var greeting = ("Hello ");
+  console.log(greeting + name);
+}(newName));
