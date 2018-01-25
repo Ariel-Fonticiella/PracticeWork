@@ -1,4 +1,4 @@
-// Created a 2-dimensional array that provides quesitons and answers.
+// Created a 2-dimensional array that provides a quesiton and an answer.
 var theQuiz = [
     ["What is Ariel's favorite NFL team?", "Miami Dolphins"],
     ["Professionally, what was Ariel before learning to code?", "Attorney"],
@@ -20,7 +20,7 @@ var wrongAnswerCount = 0;
 // Created a variable to store the question the user got incorrect.
 var wrong = [];
 
-// Created a variable to store the questions that were correct/incorrect to display
+// Created a variable to store the questions that were correct/incorrect, to display.
 var question = [];
 
 function print(message) {
@@ -44,13 +44,12 @@ function print(message) {
 for (var i = 0; i < theQuiz.length; i += 1 ) {
 
       question = theQuiz[i][0];
-      answer = theQuiz[i][1];
 
       // When the loop is run, create a variable that stores the user's response
       var userAnswer = prompt(question).toLowerCase();
 
       // Then create a variable that stores the correct answer from the array and sets all responses to be in lowercase. I did this becuase we do not know how the user will type the answer into the prompt, this ensures that if the answer is correct, it will be marked as correct regardless of what case the answer was written in.
-      var correctAnswer = answer.toLowerCase();
+      var correctAnswer = theQuiz[i][1].toLowerCase();
 
       // Create a conditional statement to test the user's answer with the correct answer.
       if (userAnswer === correctAnswer) {
