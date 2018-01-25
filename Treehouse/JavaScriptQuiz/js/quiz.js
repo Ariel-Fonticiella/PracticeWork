@@ -29,7 +29,7 @@ for (var i = 0; i < theQuiz.length; i += 1 ) {
           correctAnswerCount += 1;
 
           // Alert the user that they are correct and tell them how many quesitons they have gotten correct so far.
-          alert("You are correct! The answer was '" + correctAnswer + "!' So far you have gotten " + correctAnswerCount + " question(s) correct out of " + theQuiz.length + " !");
+          alert("You are correct! The answer was '" + correctAnswer + "!' So far you have gotten " + correctAnswerCount + " question(s) correct out of " + theQuiz.length + "!");
 
         } else {
 
@@ -46,6 +46,8 @@ for (var i = 0; i < theQuiz.length; i += 1 ) {
 function print(message) {
   document.write(message);
 }
+print("<h1> There was a total of <strong>" + theQuiz.length + " question(s)</strong> on this test. </h1>");
 
-print("<h3> You got a total of " + correctAnswerCount + " question(s) correct out of " + theQuiz.length + " !</h3>");
-print("<h3> But you also got " + wrongAnswerCount + " question(s) incorrect. </h3>");
+print("<h2> Of those 5 quesitons, you answered a total of <strong>" + correctAnswerCount + " question(s)</strong> correctly. </h2>");
+
+print("<h2> But you also answered <strong>" + wrongAnswerCount + " question(s)</strong> incorrectly. </h2>");
