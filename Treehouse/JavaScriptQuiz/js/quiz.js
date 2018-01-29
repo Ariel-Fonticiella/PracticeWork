@@ -1,11 +1,29 @@
 // Created a 2-dimensional array that provides a quesiton and an answer.
 var theQuiz = [
-    ["What is Ariel's favorite NFL team?", "Miami Dolphins"],
-    ["Professionally, what was Ariel before learning to code?", "Attorney"],
-    ["How old is Ariel?", "31"],
-    ["Ariel loves to play video games, true or false?", "true"],
-    ["What is Ariel's favorite video game growing up?", "BioShock"],
-    ["What avenue did Ariel grow up on?", "132"]
+    {
+      question: "What is Ariel's favorite NFL team?",
+      answer:   "Miami Dolphins"
+    },
+    {
+      question: "Professionally, what was Ariel before learning to code?",
+      answer:    "Attorney"
+    },
+    {
+      question: "How old is Ariel?",
+      answer:   "31"
+    },
+    {
+      question: "Ariel loves to play video games?",
+      answer:   "yes"
+    },
+    {
+      question: "What is Ariel's favorite video game growing up?",
+      answer:   "BioShock"
+    },
+    {
+      question: "What avenue did Ariel grow up on?",
+      answer:   "132"
+    }
 ];
 
 // Created a variable to keep count of the answers the user answers correctly.
@@ -43,13 +61,14 @@ function print(message) {
 // Created a loop to loop through the length of theQuiz array.
 for (var i = 0; i < theQuiz.length; i += 1 ) {
 
-      question = theQuiz[i][0];
+      question = theQuiz[i].question;
+      answer = theQuiz[i].answer;
 
       // When the loop is run, create a variable that stores the user's response
       var userAnswer = prompt(question).toLowerCase();
 
       // Then create a variable that stores the correct answer from the array and sets all responses to be in lowercase. I did this becuase we do not know how the user will type the answer into the prompt, this ensures that if the answer is correct, it will be marked as correct regardless of what case the answer was written in.
-      var correctAnswer = theQuiz[i][1].toLowerCase();
+      var correctAnswer = theQuiz[i].answer.toLowerCase();
 
       // Create a conditional statement to test the user's answer with the correct answer.
       if (userAnswer === correctAnswer) {
