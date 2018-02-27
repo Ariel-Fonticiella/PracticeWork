@@ -15,9 +15,19 @@ http.createServer(function(req, res) {
   res.writeHead(200,  { 'Content-Type': 'text/html' });
 
   // Then you need to get the contents of the file. So we do a synchronous call, readFileSync(directory name + '/index.htm'); that will give us the full path to the htm file and var html will hold the contents.
-  var html = fs.readFileSync(__dirname + '/index.htm');
+  var html = fs.readFileSync(__dirname + '/index.htm', 'utf8');
+  //                                                     |
+  //                                          We specified that we want to
+  //                                          decode it into a string by
+  //                                          putting utf8
 
-  // Send the contents of the file as the http response.
+  var message = 'Hello World...';
+
+  // Here we use the replace method on the string to say replace the template '{Message}' with my variable ('message') content's.
+  html = html.replace('{Message}', message);
+
+  // Send the contents of the Dynamic Templates as the http response.
+  // The request happened and then we took the template and did something programatic to it before sending it back. 
   res.end(html);
 
 }).listen(1337, '127.0.0.1');
