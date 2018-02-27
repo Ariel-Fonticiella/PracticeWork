@@ -14,20 +14,12 @@ http.createServer(function(req, res) {
   // Tell the browser, specify in the http response that this is going to be HTML so the browser will do the work of rendering the HTML properly.
   res.writeHead(200,  { 'Content-Type': 'text/html' });
 
-  // Then you need to get the contents of the file. So we do a synchronous call, readFileSync(directory name + '/index.htm'); that will give us the full path to the htm file and var html will hold the contents.
-  var html = fs.readFileSync(__dirname + '/index.htm', 'utf8');
-  //                                                     |
-  //                                          We specified that we want to
-  //                                          decode it into a string by
-  //                                          putting utf8
+  // Then we get a readable stream by using the method .createReadStream. Remember streams are just a wrapper around the idea of dealing with data a chunk at a time, but I could send the chunk to any writeable stream, and we already have writeable stream available to us, the 'res' that was passed to us when the event listener given as a callback was invoked.
+  fs.createReadStream(__dirname + '/index.htm').pipe(res);
+    // here, we are saying: connect a readable file stream (__dirname + '/index.htm') and pipe it (.pipe(res)) to the response stream ('res')
 
-  var message = 'Hello World...';
+    // So every chunk of data read from the file, will be buffered and then piped out to the HTTP response stream. So rather than pulling the entire file into a buffer and THEN sending it, we will send it a chunk at a time.
+    // Our buffer stays small, and that means our application will be faster, more responsive, more performant.
 
-  // Here we use the replace method on the string to say replace the template '{Message}' with my variable ('message') content's.
-  html = html.replace('{Message}', message);
-
-  // Send the contents of the Dynamic Templates as the http response.
-  // The request happened and then we took the template and did something programatic to it before sending it back. 
-  res.end(html);
 
 }).listen(1337, '127.0.0.1');
