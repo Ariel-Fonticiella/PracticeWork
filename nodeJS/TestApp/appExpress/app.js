@@ -3,16 +3,34 @@ var app = express();
 
 var port = process.env.PORT || 3000;
 
-// responding to URLs
+// MiddleWare
+app.use('/assets', express.static(__dirname + '/public'));
+
+// by default, the Express Framework will look for the static files (the views) inside a folder called 'views'. views is just your user interface, your UI. the second parameter 'ejs' is the extension we give the files in the view folder.
+app.set('view engine', 'ejs');
+
+// 'app.use' just matches a route and then takes a function. 'express.static' when you invoke this returns a function which then handles the request and the response, what's inbetween there, and a third parameter, that we'll call 'next'.
+app.use('/', function (req, res, next) {
+	console.log(`Request Url: ${req.url}`);
+	next();
+});
+
 // this will respond to an HTTP request where the method or verb is GET. It will also, then, map to a particular URL.
 // '/' essentially, will be the home page, and we give it a callback function.
-app.get('/', function(req, res){
-  // HTTP request comes in, this is the URL: '/', AND it's a GET method '.get(...)'. It's a GET verb, in the HTTP request, and then the callback function will fire and it will give us a request('req') and a response('res').
-  res.send('<html><head></head><body><h1>Hello World!</h1></body></html>');
+app.get('/', function(req, res) {
+  // Express will go to wherever you've said the views are, and by default it's in the views folder, and then it will look for a file of the name it is given 'index'
+  res.render('index');
+  // this will render the index. It will go out, get the contents of the file, process it, and render it.
+});
+
+// here we are passing a variable via the route. Here, 'id' is your variable name and the colon ':' tells the JavaScript code in Express that 'id' could be anything. So if the URL that is requested in the HTTP request is '/person/something', the .get method's callback function will be run.
+app.get('/person/:id', function(req, res) {
+	res.render('person', { ID: req.params.id });
 });
 
 app.get('/api', function(req, res) {
-    res.json({ firstname: 'Ariel', lastname: 'Fonticiella' });
+	res.json({ firstname: 'Ariel', lastname: 'Fonticiella' });
 });
+
 
 app.listen(port);
