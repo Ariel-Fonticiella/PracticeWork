@@ -40,15 +40,19 @@ app.post('/person', urlencodedParser, function(req, res) {
 		console.log(req.body.lastname);
 });
 
-app.post('/personjson', jasonParser, function(req, res){
-		res.send('Thank you for the JSON data!');
-		console.log(req.body.firstname);
-		console.log(req.body.lastname);
-});
-
-app.get('/api', function(req, res) {
+//===RESTFUL API===
+app.get('/api/person/:id', function(req, res) {
+	// get that data from database
 	res.json({ firstname: 'Ariel', lastname: 'Fonticiella' });
 });
 
+app.post('/api/person', jasonParser, function(req, res){
+		// save to the database
+});
+
+app.delete('/api/person/:id', function(req, res){
+		// delete from the database
+});
+//===RESTFUL API END===
 
 app.listen(port);

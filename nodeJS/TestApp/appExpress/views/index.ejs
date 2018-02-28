@@ -11,14 +11,5 @@
 				Last name:	<input type="text" id="lastname" name="lastname" /><br />
 				<input type="submit" value="submit" />
 		</form>
-		<script>
-				$.ajax({// we'll create an HTTP request that's a POST to the url '/personjson'.
-						type: "POST",
-						url: "/personjson",
-						data: JSON.stringify({ firstname: 'Ariel', lastname: 'Fonticiella' }),// we will be sending this data, converted to a JSON string.
-						dataType: 'json',
-						contentType: 'application/json'
-				});
-		</script>
 	</body>
 </html>
